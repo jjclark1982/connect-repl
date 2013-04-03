@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha --compilers coffee:coffee-script",
-    "prepublish": "coffee -o lib/ src/"
+    "prepublish": "coffee -o lib/ src/",
+    "postinstall": "[ -e lib ] || coffee -o lib/ src/"
   },
   "repository": {
     "type": "git",
