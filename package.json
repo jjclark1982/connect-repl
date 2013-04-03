@@ -1,0 +1,30 @@
+{
+  "name": "connect-repl",
+  "version": "1.0.0",
+  "description": "Password-protected interactive prompt for examining a running Connect or Express server",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha --compilers coffee:coffee-script",
+    "prepublish": "coffee -o lib/ src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jjclark1982/connect-repl.git"
+  },
+  "keywords": [
+    "connect",
+    "express",
+    "repl"
+  ],
+  "author": "Jesse Clark <jjclark1982@gmail.com>",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "connect": "~2.7.4"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.6.2",
+    "chai": "~1.5.0",
+    "mocha": "~1.8.2"
+  }
+}
