@@ -17,3 +17,11 @@ Password-protected interactive prompt for examining a running [Connect](http://w
     }));
 
     app.listen(3000);
+
+## To Do
+
+- make clicking on "Loading..." hang up the request,
+and make hanging up a request cancel the job if possible
+
+- allow long-running processes to trickle in one line at a time,
+maybe with an onreadystatechange handler

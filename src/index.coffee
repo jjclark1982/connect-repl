@@ -49,14 +49,15 @@ module.exports = (options = {})->
 
             when 'POST'
                 auth(req, res, -> ensureBody(req, res, ->
+                    language = req.body.language or 'JavaScript'
                     remoteAddr = req.headers["x-forwarded-for"] or req.socket.remoteAddress
-                    console.log("Evaluating REPL expression from #{remoteAddr}:", req.body.expression)
+                    console.log("Evaluating #{language} expression from #{remoteAddr}:", req.body.expression)
                     try
                         context.app = req.app
                         context.req = req
                         context.res = res
                         context.next = next
-                        switch req.body.language
+                        switch language
                             when 'Shell'
                                 res.setHeader('Content-Type', 'text/html')
                                 res.writeContinue()
@@ -75,6 +76,7 @@ module.exports = (options = {})->
                                         res.write("<p class='error'>Killed by #{signal}</p>")
                                     res.end()
                                 )
+                                child.stdin.end()
                                 return
                             when 'CoffeeScript'
                                 result = coffeeScript.eval(req.body.expression, {sandbox: context})
