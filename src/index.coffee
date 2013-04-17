@@ -118,7 +118,7 @@ template = """
     <title>{{title}}</title>
     <style>
         #history .expression:before { content: "> "; }
-        #history .expression { font-weight: bold; cursor: pointer; }
+        #history .expression { font-weight: bold; cursor: pointer; white-space: pre-line; }
         #history .error { color: red; }
         #history .loading:after { content: "Loading..."; color: orange; }
         input[name="expression"] { font-family: monospace; width: 100%; display: inline-block; box-sizing: border-box; margin: 0.5em 0; }
